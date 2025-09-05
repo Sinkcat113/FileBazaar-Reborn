@@ -28,7 +28,7 @@
     </ButtonGroup>
     <InputGroup>
         <Input type="text" disabled value={id} />
-        <Popover target="btn-copy" hideOnOutsideClick>Copied!</Popover>
+        <Popover target="btn-copy" hideOnOutsideClick><Icon name="check" /> Copied!</Popover>
         <Button color="light" id="btn-copy" on:click={handleCopy}>
             <Icon name="copy" />
         </Button>
