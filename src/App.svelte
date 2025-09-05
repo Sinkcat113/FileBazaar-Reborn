@@ -1,6 +1,9 @@
 <script>
   // @ts-nocheck
 
+  import logo from "./assets/fbzr_logo_dark_backdrop.png"
+  import { v4 as uuidv4 } from "uuid"
+
   import {
     Button,
     ButtonGroup,
@@ -24,7 +27,7 @@
   import Toolbar from "./lib/Toolbar.svelte";
   import Filelist from "./lib/Filelist.svelte";
 
-  let peer = new Peer();
+  let peer = new Peer(uuidv4());
   let id;
   let address;
   let open = false;
@@ -136,6 +139,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
   />
   <title>FileBazaar</title>
+  <link rel="shortcut icon" href={logo} type="image/x-icon">
 </svelte:head>
 
 <main>
