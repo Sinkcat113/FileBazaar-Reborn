@@ -29,7 +29,7 @@
   import Toolbar from "./lib/Toolbar.svelte";
   import Filelist from "./lib/Filelist.svelte";
   import Transfermodal from "./lib/Transfermodal.svelte";
-    import Successmodal from "./lib/Successmodal.svelte";
+  import Successmodal from "./lib/Successmodal.svelte";
 
   let peer = new Peer(uuidv4());
   let id;
