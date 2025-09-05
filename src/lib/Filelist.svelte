@@ -13,6 +13,9 @@
 </script>
 
 <div class="file-list">
+    {#if files.length > 0}
+        <h4>Outgoing Files <Icon name="cloud-arrow-up" /></h4>
+    {/if}
     <ListGroup>
         {#if files.length <= 0 && recievedFiles.length <= 0}
             <div class="drag-n-drop-msg">
@@ -41,6 +44,9 @@
             </ListGroupItem>
         {/each}
     </ListGroup>
+    {#if recievedFiles.length > 0}
+        <h4>Recieved Files <Icon name="cloud-arrow-down" /></h4>
+    {/if}
     <ListGroup>
         {#each recievedFiles as rf}
             <ListGroupItem color="success" tag="button">
@@ -64,7 +70,7 @@
 
 <style>
     .file-list {
-        margin-top: 60px;
+        margin-top: 43px;
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -77,5 +83,10 @@
         margin-left: auto;
         margin-right: auto;
         transition: 0.12s;
+    }
+
+    h4 {
+        margin: 0;
+        margin-top: 23px;
     }
 </style>
