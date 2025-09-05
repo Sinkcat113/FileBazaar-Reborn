@@ -26,6 +26,7 @@
   import { Peer } from "peerjs";
   import Toolbar from "./lib/Toolbar.svelte";
   import Filelist from "./lib/Filelist.svelte";
+    import Transfermodel from "./lib/Transfermodel.svelte";
 
   let peer = new Peer(uuidv4());
   let id;
@@ -143,15 +144,11 @@
 </svelte:head>
 
 <main>
-  <Modal isOpen={open}>
-    <ModalHeader>
-      <div style="display: flex;">
-        <Spinner color="primary"></Spinner>
-        <h4>Sending files...</h4>
-      </div>
-    </ModalHeader>
-    <Progress max={files.length} value={filesSent} />
-  </Modal>
+  <Transfermodel 
+    {files} 
+    {open} 
+    {filesSent} 
+  />
   <input
     type="file"
     multiple
