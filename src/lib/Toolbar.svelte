@@ -54,6 +54,6 @@
         border-bottom-style: solid;
         border-width: 1px;
         border-color: rgba(22, 22, 28, 0.113);
-        z-index: 1;
+        z-index: 5;
     }
 </style>

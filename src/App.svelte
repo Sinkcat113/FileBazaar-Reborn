@@ -14,6 +14,10 @@
     Col,
     Container,
     Popover,
+    Modal,
+    Progress,
+    ModalHeader,
+    Spinner,
   } from "@sveltestrap/sveltestrap";
 
   import { Peer } from "peerjs";
@@ -23,6 +27,8 @@
   let peer = new Peer();
   let id;
   let address;
+  let open = false;
+  let filesSent = 0
 
   peer.on("open", (iD) => {
     id = iD;
@@ -58,10 +64,11 @@
   };
 
   const handleTransfer = () => {
-
-    console.log(address)
-
+  
     if (files.length > 0 && address) {
+
+      open = true
+
       let conn = peer.connect(address);
 
       const fls = Array.from(files);
@@ -83,6 +90,7 @@
             };
 
             conn.send(dat);
+            filesSent++
           };
 
           reader.readAsArrayBuffer(fi);
@@ -94,7 +102,10 @@
 
             files = farr.splice(data.index, data.index);
 
-            files = files;
+            if (files.length == 0) {
+              open = false
+              filesSent = 0
+            }
           }
         });
       });
@@ -128,6 +139,15 @@
 </svelte:head>
 
 <main>
+  <Modal isOpen={open}>
+    <ModalHeader>
+      <div style="display: flex;">
+        <Spinner color="primary"></Spinner>
+        <h4>Sending files...</h4>
+      </div>
+    </ModalHeader>
+    <Progress max={files.length} value={filesSent} />
+  </Modal>
   <input
     type="file"
     multiple
