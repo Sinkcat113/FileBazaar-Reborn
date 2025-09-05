@@ -26,7 +26,7 @@
   import { Peer } from "peerjs";
   import Toolbar from "./lib/Toolbar.svelte";
   import Filelist from "./lib/Filelist.svelte";
-    import Transfermodel from "./lib/Transfermodel.svelte";
+  import Transfermodal from "./lib/Transfermodal.svelte";
 
   let peer = new Peer(uuidv4());
   let id;
@@ -144,7 +144,7 @@
 </svelte:head>
 
 <main>
-  <Transfermodel 
+  <Transfermodal 
     {files} 
     {open} 
     {filesSent} 
