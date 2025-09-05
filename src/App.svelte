@@ -30,6 +30,7 @@
   import Filelist from "./lib/Filelist.svelte";
   import Transfermodal from "./lib/Transfermodal.svelte";
   import Successmodal from "./lib/Successmodal.svelte";
+    import Errortoast from "./lib/Errortoast.svelte";
 
   let peer = new Peer(uuidv4());
   let id;
@@ -37,6 +38,7 @@
   let open = false;
   let filesSent = 0
   let success = false
+  let failed = false
 
   peer.on("open", (iD) => {
     id = iD;
@@ -137,6 +139,10 @@
       navigator.clipboard.writeText(id);
     }
   };
+
+  peer.on("error", (err) => {
+    failed = true
+  })
 </script>
 
 <svelte:head>
@@ -152,9 +158,12 @@
   <Transfermodal 
     {files} 
     {open} 
-    {filesSent} 
+    {filesSent}
   />
+
   <Successmodal {success} />
+  <Errortoast {failed} />
+
   <input
     type="file"
     multiple
