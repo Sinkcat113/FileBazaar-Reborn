@@ -20,3 +20,9 @@
     </ModalHeader>
     <Progress max={files.length} value={filesSent} />
 </Modal>
+
+<style>
+    h4 {
+        margin: 5px;
+    }
+</style>

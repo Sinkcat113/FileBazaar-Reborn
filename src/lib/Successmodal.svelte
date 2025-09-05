@@ -19,10 +19,20 @@
     </ModalBody>
     <ModalFooter>
         <Button
-            color="light"
+            color="dark"
             on:click={() => {
                 success = false;
             }}>Ok</Button
         >
     </ModalFooter>
 </Modal>
+
+<style>
+    h4 {
+        margin: 5px;
+    }
+
+    p {
+        margin: 5px;
+    }
+</style>

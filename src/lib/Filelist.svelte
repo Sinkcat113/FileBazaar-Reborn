@@ -49,21 +49,21 @@
     {/if}
     <ListGroup>
         {#each recievedFiles as rf}
-            <ListGroupItem color="success" tag="button">
-                <Row>
-                    <Col xs="auto">
-                        <Icon name="file-earmark-fill" />
-                    </Col>
-                    <Col>
-                        {rf.file.name}
-                    </Col>
-                    <Col xs="auto">
-                        <a download={rf.file.name} href={rf.url}>
+            <a download={rf.file.name} href={rf.url}>
+                <ListGroupItem color="link" tag="button">
+                    <Row>
+                        <Col xs="auto">
+                            <Icon name="file-earmark-fill" />
+                        </Col>
+                        <Col>
+                            {rf.file.name}
+                        </Col>
+                        <Col xs="auto">
                             <Icon name="download" />
-                        </a>
-                    </Col>
-                </Row>
-            </ListGroupItem>
+                        </Col>
+                    </Row>
+                </ListGroupItem>
+            </a>
         {/each}
     </ListGroup>
 </div>
@@ -88,5 +88,14 @@
     h4 {
         margin: 0;
         margin-top: 23px;
+    }
+
+    a {
+        color: black;
+        text-decoration: inherit;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 </style>
