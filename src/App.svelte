@@ -21,18 +21,22 @@
     Progress,
     ModalHeader,
     Spinner,
+    ModalBody,
+    ModalFooter,
   } from "@sveltestrap/sveltestrap";
 
   import { Peer } from "peerjs";
   import Toolbar from "./lib/Toolbar.svelte";
   import Filelist from "./lib/Filelist.svelte";
   import Transfermodal from "./lib/Transfermodal.svelte";
+    import Successmodal from "./lib/Successmodal.svelte";
 
   let peer = new Peer(uuidv4());
   let id;
   let address;
   let open = false;
   let filesSent = 0
+  let success = false
 
   peer.on("open", (iD) => {
     id = iD;
@@ -108,6 +112,7 @@
 
             if (files.length == 0) {
               open = false
+              success = true
               filesSent = 0
             }
           }
@@ -149,6 +154,7 @@
     {open} 
     {filesSent} 
   />
+  <Successmodal {success} />
   <input
     type="file"
     multiple

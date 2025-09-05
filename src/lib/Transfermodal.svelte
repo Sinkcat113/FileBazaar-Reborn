@@ -1,17 +1,5 @@
 <script>
     import {
-        Button,
-        ButtonGroup,
-        Icon,
-        Input,
-        InputGroup,
-        ListGroup,
-        Styles,
-        ListGroupItem,
-        Row,
-        Col,
-        Container,
-        Popover,
         Modal,
         Progress,
         ModalHeader,
@@ -25,7 +13,7 @@
 
 <Modal isOpen={open}>
     <ModalHeader>
-        <div style="display: flex;">
+        <div style="display: flex; gap: 12px;">
             <Spinner color="primary"></Spinner>
             <h4>Sending files...</h4>
         </div>
